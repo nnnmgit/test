@@ -1,22 +1,28 @@
 var gulp = require('gulp');
+
+// engine
 var stylus = require('gulp-stylus');
 var jade = require('gulp-jade');
 var nib = require('nib')
 
+// utility
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 
+// browser sync
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
+// error
 var plumber = require('gulp-plumber');
 var notify  = require('gulp-notify');
 
+// data
 var data = require("gulp-data");
 var inject = require("gulp-inject");
 var bowerFiles = require("main-bower-files");
-var fs = require('fs');
+var fs = require('fs'); // file system
 
 // #####################################################################
 // paths
@@ -28,7 +34,8 @@ var paths = {
 var conf = {
 	src: 'src',
 	prod: false,
-	bowerDir: '/bower_components/'
+	bowerDir: '/bower_components/',
+	dest: 'lib/'
 }
 // #####################################################################
 // tasks
@@ -46,7 +53,16 @@ gulp.task('css', function() {
 
 gulp.task('jade', function() {
 	var ignores = ['public/', 'client/'];
-	gulp.src('src/jade/*')
+	console.log('----test-----')
+	console.log(bowerFiles())
+
+	gulp.src(bowerFiles())
+		// .pipe(concat('bower_components.js'))
+		// .pipe(uglify({preserveComments: 'some'}))
+		.pipe(gulp.dest('www/lib/'))
+
+
+	var t = gulp.src('src/jade/*')
 		.pipe(plumber({
 			errorHandler: notify.onError('Error: <%= error.message %>')
 		}))
@@ -56,12 +72,26 @@ gulp.task('jade', function() {
 			// return require(paths.json);
 		}))
 		.pipe(jade({pretty: true}))
-		.pipe(inject(gulp.src(bowerFiles(), {
-			base: '/test/',
+		// .pipe(
+		// 	inject(
+		// 		gulp.src(
+		// 			bowerFiles(), {
+		// 				base: 'bower_components',
+		// 				read: false
+		// 			}
+		// 		), {
+		// 			ignorePath: ignores,
+		// 			name: 'bower'
+		// 		}
+		// 	)
+		// )
+
+
+		t.pipe(inject(gulp.src(conf.dest + "/*.js", {
 			read: false
 		}), {
 			ignorePath: ignores,
-			name: 'bower'
+			name: 'inject_bower'
 		}))
 		.pipe(gulp.dest('./www/'))
 		.on('end', reload)
@@ -86,10 +116,6 @@ gulp.task('watch', function() {
 	gulp.watch('src/stylus/*.styl', ['css']);
 	gulp.watch(['src/jade/*.jade', paths.json],['jade']);
 	gulp.watch('src/js/*.js',['js']);
-	// gulp.watch(paths.json, ['jade']);
-	// gulp.watch('www/**', function(){
-	// 	browserSync.reload();
-	// });
 });
 
 // BrowserSync
@@ -102,10 +128,6 @@ gulp.task('browser-sync', function() {
 		},
 		open: false
 	});
-	// browserSync({
-		// open: false
-		// proxy: 'localhost:8012'
-	// });
 
 });
 gulp.task('default', ['watch', 'browser-sync']);
