@@ -16,6 +16,7 @@ var notify  = require('gulp-notify');
 var data = require("gulp-data");
 var inject = require("gulp-inject");
 var bowerFiles = require("main-bower-files");
+var fs = require('fs');
 
 // #####################################################################
 // paths
@@ -27,7 +28,7 @@ var paths = {
 var conf = {
 	src: 'src',
 	prod: false,
-	bowerDir: '/bower_components/hoge'
+	bowerDir: '/bower_components/'
 }
 // #####################################################################
 // tasks
@@ -50,11 +51,13 @@ gulp.task('jade', function() {
 			errorHandler: notify.onError('Error: <%= error.message %>')
 		}))
 		.pipe(data(function(file) {
-			return require(paths.json);
+			return JSON.parse(fs.readFileSync(paths.json, 'utf8'));		// requireだとキャッシュされるのでfs.readFileSync使う
+			// delete require.cache[__dirname + paths.json]
+			// return require(paths.json);
 		}))
 		.pipe(jade({pretty: true}))
 		.pipe(inject(gulp.src(bowerFiles(), {
-			base: conf.bowerDir,
+			base: '/test/',
 			read: false
 		}), {
 			ignorePath: ignores,
@@ -80,13 +83,6 @@ gulp.task('js', function(){
 // watch
 // #####################################################################
 gulp.task('watch', function() {
-	browserSync({
-		notify: false,
-		port: 3000,
-		server: {
-			baseDir: ['./www/']
-		}
-	});
 	gulp.watch('src/stylus/*.styl', ['css']);
 	gulp.watch(['src/jade/*.jade', paths.json],['jade']);
 	gulp.watch('src/js/*.js',['js']);
@@ -99,7 +95,17 @@ gulp.task('watch', function() {
 // BrowserSync
 gulp.task('browser-sync', function() {
 	browserSync({
-		// proxy: 'localhost:8012'
+		notify: false,
+		port: 3000,
+		server: {
+			baseDir: ['./www/']
+		},
+		open: false
 	});
+	// browserSync({
+		// open: false
+		// proxy: 'localhost:8012'
+	// });
+
 });
 gulp.task('default', ['watch', 'browser-sync']);
