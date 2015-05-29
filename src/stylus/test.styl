@@ -1,0 +1,57 @@
+@import 'nib'
+@import 'reset.css'
+
+button(text color border-val = 1px solid @background)
+	background color
+	color text
+	border border-val
+
+// 変数
+red = #f0c
+
+body
+	background #ccc
+	color #fff
+	padding 40px
+	
+	
+
+// セレクタ
+#div.hoge{
+	color red
+	letter-spacing 5
+	transform-origin 50% 50%
+}
+
+h1
+	background red
+	border 1px solid #000
+	padding 20px
+	border-bottom 4px solid #ff0
+
+h2
+	border-bottom 2px solid #ff0
+	margin-bottom 40px
+	padding-bottom 40px
+
+ul
+	margin-bottom 40px
+
+.text
+	font-size 20px
+	line-height 1
+	margin 0 20px
+	
+	span
+		color #f00
+		background #000
+
+.button 
+	background #333
+	button #fff #333 #cff
+	display inline-block
+	padding 10px 20px
+		
+
+.button:hover
+	background lighten(#000, 30)

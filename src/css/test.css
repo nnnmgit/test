@@ -1,0 +1,31 @@
+@import 'reset.css';
+body {
+  background: #33f;
+  color: #000;
+}
+#div.hoge {
+  color: #f0c;
+  letter-spacing: 5;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+.text {
+  font-size: 20px;
+  line-height: 1;
+  margin: 0 20px;
+}
+.text span {
+  color: #f00;
+  background: #000;
+}
+.button {
+  background: 333;
+  color: fff;
+  border: cff;
+}
+.button:hover {
+  background: #4d4d4d;
+}

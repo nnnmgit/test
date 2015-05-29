@@ -1,0 +1,31 @@
+{
+  "name": "node_test",
+  "version": "0.1",
+  "authors": [
+    "nanonum <contact@nanonum.com>"
+  ],
+  "description": "test install and setup",
+  "main": "index.html",
+  "keywords": [
+    "setup"
+  ],
+  "license": "none",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.5",
+    "jquery": "~2.1.4",
+    "three.js": "~0.70.0",
+    "lodash": "~3.9.3",
+    "masonry": "~3.3.0",
+    "pixi": "~3.0.6"
+  },
+  "devDependencies": {
+    "neume.js": "~0.9.0"
+  }
+}

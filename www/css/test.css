@@ -1,0 +1,49 @@
+@import 'reset.css';
+body {
+  background: #ccc;
+  color: #fff;
+  padding: 40px;
+}
+#div.hoge {
+  color: #f0c;
+  letter-spacing: 5;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+h1 {
+  background: #f0c;
+  border: 1px solid #000;
+  padding: 20px;
+  border-bottom: 4px solid #ff0;
+}
+h2 {
+  border-bottom: 2px solid #ff0;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+}
+ul {
+  margin-bottom: 40px;
+}
+.text {
+  font-size: 20px;
+  line-height: 1;
+  margin: 0 20px;
+}
+.text span {
+  color: #f00;
+  background: #000;
+}
+.button {
+  background: #333;
+  background: #333;
+  color: #fff;
+  border: 1px solid #cff;
+  display: inline-block;
+  padding: 10px 20px;
+}
+.button:hover {
+  background: #4d4d4d;
+}

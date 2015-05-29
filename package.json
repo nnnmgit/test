@@ -1,0 +1,32 @@
+{
+  "name": "testproject",
+  "version": "1.0.5",
+  "private": true,
+  "description": "test no project desu",
+  "main": "test.js",
+  "dependencies": {
+    "canvas": "^1.2.3",
+    "gulp": "^3.8.11",
+    "gulp-inject": "^1.2.0",
+    "gulp-watch": "^4.2.4",
+    "nib": "^1.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.5",
+    "ejs": "^2.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-data": "^1.2.0",
+    "gulp-inject": "^1.2.0",
+    "gulp-jade": "^1.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "main-bower-files": "^2.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nanonum",
+  "license": "ISC"
+}
