@@ -56,6 +56,7 @@ gulp.task('jade', function() {
 	console.log('----test-----')
 	console.log(bowerFiles())
 
+	// bower filesをlibディレクトリにコピー
 	gulp.src(bowerFiles())
 		// .pipe(concat('bower_components.js'))
 		// .pipe(uglify({preserveComments: 'some'}))
@@ -63,28 +64,28 @@ gulp.task('jade', function() {
 
 
 	var t = gulp.src('src/jade/*')
-		.pipe(plumber({
-			errorHandler: notify.onError('Error: <%= error.message %>')
-		}))
-		.pipe(data(function(file) {
-			return JSON.parse(fs.readFileSync(paths.json, 'utf8'));		// requireだとキャッシュされるのでfs.readFileSync使う
-			// delete require.cache[__dirname + paths.json]
-			// return require(paths.json);
-		}))
-		.pipe(jade({pretty: true}))
-		// .pipe(
-		// 	inject(
-		// 		gulp.src(
-		// 			bowerFiles(), {
-		// 				base: 'bower_components',
-		// 				read: false
-		// 			}
-		// 		), {
-		// 			ignorePath: ignores,
-		// 			name: 'bower'
-		// 		}
-		// 	)
-		// )
+			.pipe(plumber({
+				errorHandler: notify.onError('Error: <%= error.message %>')
+			}))
+			.pipe(data(function(file) {
+				return JSON.parse(fs.readFileSync(paths.json, 'utf8'));		// requireだとキャッシュされるのでfs.readFileSync使う
+				// delete require.cache[__dirname + paths.json]
+				// return require(paths.json);
+			}))
+			.pipe(jade({pretty: true}))
+			// .pipe(
+			// 	inject(
+			// 		gulp.src(
+			// 			bowerFiles(), {
+			// 				base: 'bower_components',
+			// 				read: false
+			// 			}
+			// 		), {
+			// 			ignorePath: ignores,
+			// 			name: 'bower'
+			// 		}
+			// 	)
+			// )
 
 
 		t.pipe(inject(gulp.src(conf.dest + "/*.js", {
@@ -126,7 +127,7 @@ gulp.task('browser-sync', function() {
 		server: {
 			baseDir: ['./www/']
 		},
-		open: false
+		open: false // ブラウザ開かない
 	});
 
 });
