@@ -27,5 +27,10 @@
   },
   "devDependencies": {
     "neume.js": "~0.9.0"
+  },
+  "overrides": {
+    "jquery": {
+      "js": "www/js/jquery.js"
+    }
   }
 }
