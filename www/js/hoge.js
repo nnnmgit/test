@@ -12,6 +12,3 @@ $(function(){
 })
 
 var TEST = 3;
-(function(){
-	document.write("document.write()")
-}());
