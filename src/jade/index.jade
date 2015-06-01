@@ -2,6 +2,7 @@
 
 //- page ID index1 hoge2
 - var pageID = 1;
+- var din = 'DIN alternate';
 
 doctype html
 html
@@ -83,7 +84,13 @@ html
 		
 			p #{textLayerData.layerHoge.text}
 			p #{textLayerData.layerFuga.text}
+	
+	div#attr(hoge='a', data='hoho')
 
+	- var attr = {'neko': 'inu', 'inuinu': "drum'n'bass"};
+	div#nekoinu(style = {'font-size': '80px', 'font-family': din, 'text-transform': 'uppercase'})&attributes(attr)
+		script.
+			document.write( $('#nekoinu').attr('inuinu') )
 
 	div#hoge
 		h2 subtitle

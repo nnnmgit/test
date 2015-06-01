@@ -1,0 +1,28 @@
+block vars
+
+doctype html
+html
+	head
+		meta(charset="UTF-8")
+		link(type='text/css', rel='stylesheet', href='./css/test.css')
+		title title
+		<!-- inject:js -->
+		<!-- endinject -->
+
+		<!-- inject_bower:js -->
+		<!-- endinject -->
+
+		<!-- bower:js -->
+		<!-- endinject -->
+
+
+		<!-- inject:css -->
+		<!-- endinject -->
+
+body
+
+h1= title
+
+button.btn(style={'font-size': '40px', padding: '20px 40px'}) btnText
+
+block contents

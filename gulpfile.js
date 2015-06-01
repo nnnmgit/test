@@ -118,6 +118,10 @@ gulp.task('jade', function() {
 		.pipe(gulp.dest('./www/'))
 		// .on('end', reload)
 		// .pipe(browserSync.reload({stream: true}));
+
+	gulp.src('src/jade/_*')
+		.pipe(browserSync.reload({stream: true}));
+
 });
 
 
