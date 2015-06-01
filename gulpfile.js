@@ -76,7 +76,7 @@ gulp.task('jade', function() {
 	var ignores = ['public/', 'client/'];
 
 
-	var t = gulp.src('src/jade/*')
+	var t = gulp.src(['src/jade/*', '!src/jade/_*'])
 			.pipe(plumber({
 				errorHandler: notify.onError('Error: <%= error.message %>')
 			}))

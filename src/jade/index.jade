@@ -1,3 +1,8 @@
+- var title = '<s>nekoneko Cat man</s>';
+
+//- page ID index1 hoge2
+- var pageID = 1;
+
 doctype html
 html
 	head
@@ -15,21 +20,52 @@ html
 
 		<!-- inject:css -->
 		<!-- endinject -->
+
+
 	body
-	pre
-		|デッVv3
-		|hossss
-		|hossss
+		// if lt IE 9
+			script src="html5.js"
+
+
+	//- include header module ##########################################################################################
+	include _header
+	//- ################################################################################################################
+
 	p
-		|hoge
-		|neeee
-		|momo
-		|img
-		|	img
-		|		hoge
+		!=title
 
-		a(href="index.jade", style="background: red; color:#fff") link
+		//- comment 
+		// comment comment 
 
+	- if (pageID === 1)
+		div.kv
+			img(src="hoge.html", alt="ようこそ登別へ", width="100%", height="400")
+
+	header#header
+		div.title
+			h1
+				- var target = 'a';
+				case target 
+					when "a"
+						| page: A
+					when "b"
+						| bbb
+					when 5
+						| 5番目のページ
+
+
+
+	#contents
+		h1 #{title}
+		h2 test
+		h3 hoge
+		ul
+			li
+				a(href="hoge/") test
+			li
+				a(href="neko/") nya-n
+
+		button.button test
 
 	div#hoge
 		<hr>
@@ -48,7 +84,6 @@ html
 			p #{textLayerData.layerHoge.text}
 			p #{textLayerData.layerFuga.text}
 
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 	div#hoge
 		h2 subtitle
@@ -77,6 +112,7 @@ html
 	p.button click
 
 
-	div#container
-		h1 Hello world!
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	//- include header module ##########################################################################################
+	include _footer
+	//- ################################################################################################################
+
