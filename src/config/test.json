@@ -1,4 +1,9 @@
 {
+    "siteData": {
+        "siteName": "なんとかかんとか.com",
+        "url": "http://hogehogehogehoge.com/",
+        "author": "wataru sakurai"
+    },
     "textLayerData": {
         "layerHoge": {
             "text": "できてるっぽい"
