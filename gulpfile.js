@@ -150,7 +150,7 @@ gulp.task('watch', function() {
 
 gulp.task('inject', function(){
 	console.log("task inject =========")
-	var target = gulp.src('./www/index.html');
+	var target = gulp.src(['./www/*.html', '!./www/_*.html']);
 	var sources = gulp.src(['www/lib/*.js', 'www/js/*.js'], {read: false});
 	return target.pipe(inject(sources, {relative: true}))
 	.pipe(gulp.dest('./www'))
